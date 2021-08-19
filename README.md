@@ -35,5 +35,5 @@ jobs:
       previous_tag: ${{ steps.semantic.outputs.previous_tag }}
       prerelease: ${{ steps.semantic.outputs.prerelease }}
       previous_light_tag: ${{ steps.semantic.outputs.previous_light_tag }}
-      branch: ${{ steps.extract_branch.outputs.branch }}
+      branch: ${{ steps.semantic.outputs.branch }}
 ```
