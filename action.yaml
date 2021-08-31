@@ -4,28 +4,30 @@ inputs:
   token:
     required: false
     description: 'A token to access private github repos'
+    
 outputs: 
-  new_tag:
+  new-tag:
     description: "The new tag"
     value: ${{ steps.semantic.outputs.new_tag }}
-  new_version:
+  new-version:
     description: "The new version"
     value: ${{ steps.semantic.outputs.new_version }}
   changelog:
     description: "Changelog"
     value: ${{ steps.semantic.outputs.changelog }}
-  previous_tag:
+  previous-tag:
     description: "The previous annotated tag"
     value: ${{ steps.semantic.outputs.previous_tag }}
   prerelease:
     description: "Prerelease"
     value: ${{ steps.semantic.outputs.prerelease }}
-  previous_light_tag:
+  previous-light-tag:
     description: "The previous lightweight tag"
     value: ${{ steps.semantic.outputs.previous_light_tag }}
   branch:
     description: "Branch"
     value: ${{ steps.extract_branch.outputs.branch }}
+    
 runs:
     using: "composite"
     steps:
