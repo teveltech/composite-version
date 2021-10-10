@@ -27,6 +27,9 @@ outputs:
   branch:
     description: "Branch"
     value: ${{ steps.extract_branch.outputs.branch }}
+  new-numbered:
+    description: "New tag without branch name and commit number"
+    value: ${{ steps.semantic.outputs.new_numbered }}
     
 runs:
     using: "composite"
