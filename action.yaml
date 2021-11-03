@@ -24,7 +24,7 @@ outputs:
   previous-light-tag:
     description: "The previous lightweight tag"
     value: ${{ steps.semantic.outputs.previous_light_tag }}
-  branch:
+  branch:                                                             # DEPRECATED
     description: "Branch"
     value: ${{ steps.extract_branch.outputs.branch }}
   new-numbered:
@@ -40,7 +40,7 @@ runs:
           fetch-depth: 0                # fetch the whole repo history
           persist-credentials: false
           
-      - name: Extract branch name
+      - name: Extract branch name                   # DEPRECATED
         id: extract_branch
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
