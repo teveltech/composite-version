@@ -41,10 +41,10 @@ runs:
           fetch-depth: 0                # fetch the whole repo history
           persist-credentials: false
           
-      - name: Extract branch name                   # DEPRECATED
-        id: extract_branch
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      # - name: Extract branch name                   # DEPRECATED
+      #   id: extract_branch
+      #   shell: bash
+      #   run: echo "##branch;$(echo ${GITHUB_REF#refs/heads/})"
         
       - name: Handle version update
         uses: teveltech/github-tag-action@annotated-tag
