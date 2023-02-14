@@ -47,7 +47,7 @@ runs:
       #   run: echo "##branch;$(echo ${GITHUB_REF#refs/heads/})"
         
       - name: Handle version update
-        uses: teveltech/github-tag-action@annotated-tag
+        uses: teveltech/github-tag-action@set-output
         id: semantic
         with:
           dry_run: true
