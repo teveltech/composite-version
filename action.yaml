@@ -36,15 +36,15 @@ runs:
     steps:
       - name: Checkout
         # if: startsWith(github.event.head_commit.message, '(build):') || startsWith(github.event.commits[0].message, '(build):') || endsWith(github.event.head_commit.message, '--build') || endsWith(github.event.commits[0].message, '--build')
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0                # fetch the whole repo history
           persist-credentials: false
           
-      - name: Extract branch name                   # DEPRECATED
-        id: extract_branch
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      # - name: Extract branch name                   # DEPRECATED
+      #   id: extract_branch
+      #   shell: bash
+      #   run: echo "##branch;$(echo ${GITHUB_REF#refs/heads/})"
         
       - name: Handle version update
         uses: teveltech/github-tag-action@annotated-tag
