@@ -46,6 +46,11 @@ runs:
       #   shell: bash
       #   run: echo "##branch;$(echo ${GITHUB_REF#refs/heads/})"
         
+        - name: Extract branch name
+          shell: bash
+          run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+          id: extract_branch
+          
       - name: Handle version update
         uses: teveltech/github-tag-action@annotated-tag
         id: semantic
