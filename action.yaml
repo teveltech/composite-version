@@ -39,7 +39,7 @@ runs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0                # fetch the whole repo history
-          # persist-credentials: false
+          persist-credentials: false
           
       # - name: Extract branch name                   # DEPRECATED
       #   id: extract_branch
