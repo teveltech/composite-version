@@ -45,7 +45,10 @@ runs:
       #   id: extract_branch
       #   shell: bash
       #   run: echo "##branch;$(echo ${GITHUB_REF#refs/heads/})"
-        
+      - name: Set Git safe directory
+        shell: bash
+        run: |
+          git config --global --add safe.directory $GITHUB_WORKSPACE
       - name: Handle version update
         uses: teveltech/github-tag-action@update_node
         id: semantic
