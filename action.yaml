@@ -52,7 +52,7 @@ runs:
         id: extract_branch
           
       - name: Handle version update
-        uses: teveltech/github-tag-action@annotated-tag
+        uses: teveltech/github-tag-action@update_node
         id: semantic
         with:
           dry_run: true
