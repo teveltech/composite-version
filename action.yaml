@@ -4,6 +4,8 @@ inputs:
   token:
     required: false
     description: 'A token to access private github repos'
+  ssh-key:
+    required: false
     
 outputs: 
   new-tag:
@@ -38,9 +40,10 @@ runs:
         # if: startsWith(github.event.head_commit.message, '(build):') || startsWith(github.event.commits[0].message, '(build):') || endsWith(github.event.head_commit.message, '--build') || endsWith(github.event.commits[0].message, '--build')
         uses: actions/checkout@v3
         with:
-          # fetch-depth: 0                # fetch the whole repo history
+          fetch-depth: 0                # fetch the whole repo history
           persist-credentials: false
-          fetch-tags: true
+          ssh-key: ${{inputs.ssh-key}}
+          # fetch-tags: true
           
       # - name: Extract branch name                   # DEPRECATED
       #   id: extract_branch
